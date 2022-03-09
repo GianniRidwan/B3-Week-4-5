@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Lab 2 - Includes en require</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -16,6 +16,6 @@
 	
 	<!-- laad hier via php je footer in (vanuit je includes map)-->
 
-
+  <?php include 'includes/footer.php' ?>
 </body>
 </html>

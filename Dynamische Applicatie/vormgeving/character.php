@@ -7,8 +7,11 @@
     <link href="resources/css/style.css" rel="stylesheet"/>
 </head>
 <body>
+    <?php 
+        include 'connect.php'
+    ?>
 <header><h1>Bowser</h1>
-    <a class="backbutton" href="index.html"><i class="fas fa-long-arrow-alt-left"></i> Terug</a></header>
+    <a class="backbutton" href="index.php"><i class="fas fa-long-arrow-alt-left"></i> Terug</a></header>
 <div id="container">
     <div class="detail">
         <div class="left">
@@ -42,6 +45,6 @@
         <div style="clear: both"></div>
     </div>
 </div>
-<footer>&copy; [jenaam] 2020</footer>
+<footer>&copy; Gianni 2022</footer>
 </body>
 </html>

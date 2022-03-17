@@ -18,7 +18,7 @@
 
     foreach ($result as $row){ ?>
         <div id="container">
-            <a class="item" href="character.php?id=<?php $order ?>"> 
+            <a class="item" href="character.php?id=<?php echo $order ?>"> 
                 <div class="left"> 
                     <img class="avatar" src="resources/images/<?php echo $row['avatar'] ?>"> 
                 </div> 

@@ -7,14 +7,24 @@
     <link href="resources/css/style.css" rel="stylesheet"/>
 </head>
 <body>
-    <?php 
-        include 'connect.php';
+<?php 
+    include 'connect.php';
 
-        $stmt = $conn->prepare ("SELECT * FROM characters ORDER BY name ASC");
-        $stmt->execute();
-        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        $character = $_GET['id'];
-    ?>
+    $stmt = $conn->prepare ("SELECT * FROM characters ORDER BY name ASC");
+    $stmt->execute();
+    $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    $id = $_GET['id'];
+?>
+
+<!-- <?php
+if(isset($_GET['id']) && $_GET['id'] !== ''){
+  $product_id = $_GET['id'];
+  echo $product_id;
+} else {
+  echo "failed";
+}
+?> -->
+
 <header><h1>Bowser</h1>
     <a class="backbutton" href="index.php"><i class="fas fa-long-arrow-alt-left"></i> Terug</a></header>
 <div id="container">

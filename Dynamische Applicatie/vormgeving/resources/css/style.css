@@ -1,6 +1,7 @@
 html, body{
     background-color: gray;
     font-family: Verdana;
+    background-color: red;
 }
 
 a{
@@ -21,6 +22,11 @@ a:active {
     margin: 0 auto;
     background-color: white;
     padding: 10px 20px;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: auto 450px 450px auto;
 }
 
 header {

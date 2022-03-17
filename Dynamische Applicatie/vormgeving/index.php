@@ -7,35 +7,37 @@
     <link href="resources/css/style.css" rel="stylesheet"/>
 </head>
 <body>
-    <?php 
-        include 'connect.php';
-        echo '<header><h1>Alle [X] characters uit de database</h1></header>'; 
-    ?>
+<?php 
+    include 'connect.php';
 
-<?php
-    $stmt = $conn->prepare ("SELECT name, avatar, health, attack, defense FROM characters ORDER BY name ASC");
+    $stmt = $conn->prepare ("SELECT * FROM characters ORDER BY name ASC");
     $stmt->execute();
     $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-    foreach ($result as $row){
-        echo '<div id="container">' . 
-                '<a class="item" href="character.php">' . 
-                    '<div class="left">' . 
-                        '<img class="avatar" src="resources/images/' . $row['avatar'] . '">' . 
-                    '</div>' . 
-                    '<div class="right">' . 
-                        '<h2>' . $row['name'] . '</h2>' . 
-                        '<div class="stats">' . 
-                            '<ul class="fa-ul">' . 
-                                '<li><span class="fa-li"><i class="fas fa-heart"></i></span>' . $row["health"] . '</li>' . 
-                                '<li><span class="fa-li"><i class="fas fa-fist-raised"></i></span>' . $row['attack'] . '</li>' . 
-                                '<li><span class="fa-li"><i class="fas fa-shield-alt"></i></span>' . $row['defense'] . '</li>' . 
-                            '</ul>' . 
-                        '</div>' . 
-                    '</div>' . 
-                '<div class="detailButton"><i class="fas fa-search"></i> bekijk</div>' . 
-                '</a>' . 
-        '</div>';
-        }
+    $order = 0;
+    echo '<header><h1>Alle ' . count($result) . ' characters uit de database</h1></header>'; 
+
+    foreach ($result as $row){ ?>
+        <div id="container">
+            <a class="item" href="character.php?id=<?php $order ?>"> 
+                <div class="left"> 
+                    <img class="avatar" src="resources/images/<?php echo $row['avatar'] ?>"> 
+                </div> 
+                <div class="right"> 
+                    <h2> <?php echo $row['name'] ?> </h2> 
+                    <div class="stats">
+                        <ul class="fa-ul">
+                            <li><span class="fa-li"><i class="fas fa-heart"></i></span> <?php echo $row["health"] ?> </li> 
+                            <li><span class="fa-li"><i class="fas fa-fist-raised"></i></span> <?php echo $row['attack'] ?> </li> 
+                            <li><span class="fa-li"><i class="fas fa-shield-alt"></i></span> <?php echo $row['defense'] ?> </li> 
+                        </ul> 
+                    </div> 
+                </div> 
+            <div class="detailButton"><i class="fas fa-search"></i> bekijk</div> 
+            </a> 
+        </div>
+<?php
+    $order++;
+}
 ?>
 
 <footer>&copy; Gianni 2022</footer>

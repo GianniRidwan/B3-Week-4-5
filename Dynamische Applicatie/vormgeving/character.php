@@ -8,7 +8,12 @@
 </head>
 <body>
     <?php 
-        include 'connect.php'
+        include 'connect.php';
+
+        $stmt = $conn->prepare ("SELECT * FROM characters ORDER BY name ASC");
+        $stmt->execute();
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $character = $_GET['id'];
     ?>
 <header><h1>Bowser</h1>
     <a class="backbutton" href="index.php"><i class="fas fa-long-arrow-alt-left"></i> Terug</a></header>

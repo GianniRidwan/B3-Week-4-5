@@ -24,11 +24,6 @@ a:active {
     padding: 10px 20px;
 }
 
-#container {
-    display: grid;
-    grid-template-columns: auto 450px 450px auto;
-}
-
 header {
     position: relative;
     text-align: center;

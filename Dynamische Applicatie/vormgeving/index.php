@@ -17,27 +17,25 @@
     $stmt->execute();
     $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
     foreach ($result as $row){
-        // echo $row['name'] . $row['health'] . $row['attack'] . $row['defense'] . '<br/>';
-   
-    echo '<div id="container">' . 
-            '<a class="item" href="character.php">' . 
-                '<div class="left">' . 
-                    '<img class="avatar" src="resources/images/' . $row['avatar'] . '">' . 
-                '</div>' . 
-                '<div class="right">' . 
-                    '<h2>' . $row['name'] . '</h2>' . 
-                    '<div class="stats">' . 
-                        '<ul class="fa-ul">' . 
-                            '<li><span class="fa-li"><i class="fas fa-heart"></i></span>' . $row["health"] . '</li>' . 
-                            '<li><span class="fa-li"><i class="fas fa-fist-raised"></i></span>' . $row['attack'] . '</li>' . 
-                            '<li><span class="fa-li"><i class="fas fa-shield-alt"></i></span>' . $row['defense'] . '</li>' . 
-                        '</ul>' . 
+        echo '<div id="container">' . 
+                '<a class="item" href="character.php">' . 
+                    '<div class="left">' . 
+                        '<img class="avatar" src="resources/images/' . $row['avatar'] . '">' . 
                     '</div>' . 
-                '</div>' . 
-            '<div class="detailButton"><i class="fas fa-search"></i> bekijk</div>' . 
-            '</a>' . 
-    '</div>';
-    }
+                    '<div class="right">' . 
+                        '<h2>' . $row['name'] . '</h2>' . 
+                        '<div class="stats">' . 
+                            '<ul class="fa-ul">' . 
+                                '<li><span class="fa-li"><i class="fas fa-heart"></i></span>' . $row["health"] . '</li>' . 
+                                '<li><span class="fa-li"><i class="fas fa-fist-raised"></i></span>' . $row['attack'] . '</li>' . 
+                                '<li><span class="fa-li"><i class="fas fa-shield-alt"></i></span>' . $row['defense'] . '</li>' . 
+                            '</ul>' . 
+                        '</div>' . 
+                    '</div>' . 
+                '<div class="detailButton"><i class="fas fa-search"></i> bekijk</div>' . 
+                '</a>' . 
+        '</div>';
+        }
 ?>
 
 <footer>&copy; Gianni 2022</footer>
